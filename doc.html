@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email details</title>
+    <style>
+       
+    @font-face {
+        font-family: 'Lufga';
+        src: url('fonts/Lufga.ttf') format('truetype'); 
+        font-weight: normal;
+        font-style: normal;
+    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lufga', sans-serif;
+        }
+        body {
+            font-family: 'Lufga', sans-serif;
+            background: url('doce.webp') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            font-family: 'Lufga', sans-serif;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 380px;
+            height: 320px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .input-group {
+            width: 100%;
+            font-family: 'Lufga', sans-serif;
+            padding: 10px 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+           
+        }
+        .email-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Lufga', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .email-box input[type="email"] {
+            flex-grow: 1;
+            font-family: 'Lufga', sans-serif;
+            border: none;
+            padding: 10px;
+            font-size: 11px;
+            outline: none;
+        }
+        .email-box input[type="checkbox"] {
+            margin-left: 10px;
+            cursor: pointer;
+            font-family: 'Lufga', sans-serif;
+        }
+        .container button {
+            
+            width: 100%;
+            font-family: 'Lufga', sans-serif;
+            padding: 10px;
+            background:  #0b1467d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .container button:disabled {
+            background:  #0b1467d2;
+            font-family: 'Lufga', sans-serif;
+        }
+     
+        .terms {
+            font-size: 14px;
+            margin: 10px 0;
+            font-family: 'Lufga', sans-serif;
+        }
+        .policy {
+            margin-top: 10px;
+            font-size: 10px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .register {
+            margin-top: 10px;
+            font-size: 12px;
+            font-family: 'Lufga', sans-serif;
+        }
+
+        .register a {
+            color: #007bff;
+            text-decoration: none;
+            font-family: 'Lufga', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Duty Doctor👋</h2>
+        <h5>Sign in to your account</h5>
+        <div class="input-group">
+            <div class="email-box">
+                <input type="email" id="email" placeholder="dummy@gmail.com">
+                <input type="checkbox" id="emailCheck">
+            </div>
+        </div>
+        <button id="getOtpBtn" disabled>Get OTP</button>
+        <h4 class="policy">By clicking, I accept the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></h4>
+        <p class="register">If you don't have an account? <a href="#">Register now</a></p>
+    </div>
+    <script>
+        document.getElementById('emailCheck').addEventListener('change', function() {
+            document.getElementById('getOtpBtn').disabled = !this.checked;
+        });
+
+        document.getElementById('getOtpBtn').addEventListener('click', function() {
+            let email = document.getElementById('email').value;
+            if (email.includes('@') && email.includes('.')) {
+                window.location.href = 'otp.html';
+            } else {
+                alert('Please enter a valid email address');
+            }
+        });
+    </script>
+</body>
+</html>
+

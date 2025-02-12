@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+         @font-face {
+        font-family: 'Lufga';
+        src: url('fonts/Lufga.ttf') format('truetype'); 
+        font-weight: normal;
+        font-style: normal;
+         }
+        body {
+            font-family: 'Lufga', sans-serif;
+            background-image: url('doce.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-attachment: fixed;
+        }
+
+        .container {
+            background-color:white;
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 240px;
+            text-align:left;
+            height: 250px;
+            font-size: medium;
+            font-family: 'Lufga', sans-serif;
+        }
+
+        h3.otp-title {
+            font-size: 1em;
+            font-family: 'Lufga', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .otp-description {
+            font-size: 10px;
+            color: #555;
+            font-family: 'Lufga', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .otp-input-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size:xx-small;
+            font-family: 'Lufga', sans-serif;
+        }
+
+        .otp-box {
+    width: 28px;
+    font-family: 'Lufga', sans-serif;
+    height: 35px;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid #0b1467d2;
+    border-radius: 999px;
+    background-color: #0b1467d2;
+    color: #fff;
+    margin: 2px; /* Reduce this value to decrease the gap */
+}
+
+        .otp-box:focus {
+            outline: none;
+            font-family: 'Lufga', sans-serif;
+            border-color:#0b1467d2;
+        }
+        .time{
+            font-size: x-small;
+            color: #3b40ad;
+            font-family: 'Lufga', sans-serif;
+            text-align: center;
+        }
+
+        .continue-container {
+            margin-top: 20px;
+            font-family: 'Lufga', sans-serif;
+        }
+
+        .continue-btn {
+            background-color:#0b1467d2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-family: 'Lufga', sans-serif;
+            border-radius: 30px;
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .continue-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3 class="otp-title">6-digit code</h3>
+        <p class="otp-description">Please enter the code we've sent to your email <strong>dummyemail@gmail.com</strong></p>
+
+        <div class="otp-input-container">
+            <input type="text" maxlength="1" class="otp-box" id="otp1">
+            <input type="text" maxlength="1" class="otp-box" id="otp2">
+            <input type="text" maxlength="1" class="otp-box" id="otp3">
+            <input type="text" maxlength="1" class="otp-box" id="otp4">
+            <input type="text" maxlength="1" class="otp-box" id="otp5">
+            <input type="text" maxlength="1" class="otp-box" id="otp6">
+        </div>
+        <div class="time">
+            <h3  class="sec">Resend code in 00.20</h3>
+        </div>
+
+
+        <div class="continue-container">
+            <button class="continue-btn" onclick="verifyOTP()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function verifyOTP() {
+            const otp = [
+                document.getElementById('otp1').value,
+                document.getElementById('otp2').value,
+                document.getElementById('otp3').value,
+                document.getElementById('otp4').value,
+                document.getElementById('otp5').value,
+                document.getElementById('otp6').value,
+            ].join('');
+
+            if (otp === '123456') { 
+                window.location.href = 'login.html'; 
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        }
+
+      
+
+        document.querySelectorAll('.otp-box').forEach((element, index, array) => {
+            element.addEventListener('input', function () {
+                if (this.value.length === 1 && index < array.length - 1) {
+                    array[index + 1].focus();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

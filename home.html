@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duty Doctor - Home</title>
+    <style>
+         @font-face {
+        font-family: 'Lufga';
+        src: url('fonts/Lufga.ttf') format('truetype'); 
+        font-weight: normal;
+        font-style: normal;
+    }
+        * {
+            font-family: 'Lufga', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lufga', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }        
+        header {
+            font-family: 'Lufga', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            font-family: 'Lufga', sans-serif;
+            align-items: center;
+        }
+        .logo {
+            width: 40px;
+            height: auto;
+            font-family: 'Lufga', sans-serif;
+            margin-right: 10px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight:lighter;
+            font-family: 'Lufga', sans-serif;
+            color: rgb(31, 90, 179);
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            font-family: 'Lufga', sans-serif;
+        }
+        nav ul li {
+            margin: 0 15px;
+            font-family: 'Lufga', sans-serif;
+        }
+        nav ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            color: rgb(31, 90, 179);
+            font-weight: bold;
+            transition: color 0.3s;
+            font-family: 'Lufga', sans-serif;
+        }
+        nav ul li a:hover {
+            color: #0b3251;
+            font-family: 'Lufga', sans-serif;
+        }
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            font-family: 'Lufga', sans-serif;
+        }
+        .search-bar {
+            width: 450px;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Lufga', sans-serif;
+            border: 1px solid rgb(255, 255, 255);
+            outline: none;
+        }
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        .main-box {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Lufga', sans-serif;
+            gap: 20px;
+            padding: 15px;
+            width: 100%;
+            margin-top: 50px;
+        }
+        .main-content {
+            flex: 1;
+            text-align: left;
+            background-image: url('docai.webp');
+            background-size:contain;
+            background-position: 0cqmax;
+            background-attachment: fixed;
+            padding: 20px 400px 20px 20px;
+            height: auto;
+            border-radius: 10px;
+            color: rgb(255, 255, 255);
+            font-family: 'Lufga', sans-serif;
+        }
+        h3 {
+            font-size: 25px;
+            margin-top: 15px;
+            font-family: 'Lufga', sans-serif;
+            color: white;
+        }
+        h4 {
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-family: 'Lufga', sans-serif;
+            color: rgba(236, 236, 244, 0.649);
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+            font-family: 'Lufga', sans-serif;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            font-family: 'Lufga', sans-serif;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .explore {
+            background-color: rgb(253, 248, 248);
+            color: rgb(22, 25, 131);
+            font-family: 'Lufga', sans-serif;
+        }
+        .register {
+            background-color: #fefffe;
+            color:  rgb(22, 25, 131);
+            font-family: 'Lufga', sans-serif;
+        }
+        .btn:hover {
+            opacity: 0.8;
+            background-color: rgb(22, 25, 131);
+            color: white;
+            font-family: 'Lufga', sans-serif;
+        }
+        .journey-container {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(155, 209, 97, 0.1);
+            color: rgb(8, 30, 59, #59b1eb);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-family: 'Lufga', sans-serif;
+        }
+        .journey-container h4 {
+            font-size: 18px;
+            text-align:start;
+            font-weight:lighter;
+            color: rgb(31, 90, 179);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .journey-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            font-family: 'Lufga', sans-serif;
+        }
+        .option {
+            display: flex;
+            font-family: 'Lufga', sans-serif;
+            align-items: center;
+            font-size: 18px;
+         
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .option:hover {
+            transform: scale(1.05);
+            font-family: 'Lufga', sans-serif;
+            color: #1f5e9b;
+        }
+        .option.clicked {
+            background-color: #007bff;
+            font-family: 'Lufga', sans-serif;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .journey-container:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            font-family: 'Lufga', sans-serif;
+        }
+        .job-container {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Lufga', sans-serif;
+            gap: 1px;
+            margin-top: 0;
+        }
+        .job-section {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-family: 'Lufga', sans-serif;
+}
+.job-list {
+    flex: 3;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 0px; 
+    font-family: 'Lufga', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+        .section{
+            color:rgb(255, 255, 255);
+            font-size: medium;
+            font-family: 'Lufga', sans-serif;
+        }
+        .locations {
+            font-family: 'Lufga', sans-serif;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0px;
+        }
+        .location-item {          
+            padding: 30px;
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: 0 2px 4px #ffffff1a;
+            flex: 1 1 20%;
+            color: white;
+            min-width: 150px;
+            max-width: 250px;
+            height: 150px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s ease;
+            font-family: 'Lufga', sans-serif;
+        }
+        .location-item.coimbatore {
+            background-image: url('https://solopassport.com/wp-content/uploads/2022/10/4-things-to-do-at-Coimbatore.jpeg');
+        }
+        .location-item.chennai {
+            background-image: url('https://live.staticflickr.com/4516/37750362934_cae02de2af_b.jpg');
+        }
+        .location-item.madurai {
+            background-image: url('https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzL2JjOTdjMDA5YmE1MTNmZDRhOV8zNjIyMzA0ODQzX2EwNmNhNGI0MjFfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0/3622304843_a06ca4b421_o.jpg');
+        }
+        .location-item.thiruvanmiyur {
+            background-image: url('https://pro2-bar-s3-cdn-cf3.myportfolio.com/e48940ae3a3dcf505df9686f46bb040d/eb816ce1-fa1b-4a52-9c61-6cde8c68759a_rw_1920.jpg?h=a2d0dd4d5a73fb5ff3ce635bcf5ff264');
+        }
+        .location-item h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgb(29, 56, 176);
+            font-family: 'Lufga', sans-serif;
+        }
+        .location-item h6 {
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgb(29, 56, 176);
+            font-family: 'Lufga', sans-serif;
+        }
+        .view-all-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            font-family: 'Lufga', sans-serif;
+        }
+        .view-all {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-family: 'Lufga', sans-serif;
+            margin-top: 10px;
+        }
+        .view-all:hover {
+            color: #0056b3;
+        }
+        .coaching-section { 
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    font-family: 'Lufga', sans-serif;
+    height: auto;  
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+}
+.coaching-section img {
+    width: 100%;  
+    height: 200px;  
+    object-fit: cover; 
+    object-position: center;  
+    margin-bottom: 20px; 
+    border-radius: 5px;
+    font-family: 'Lufga', sans-serif;
+}
+.coaching-section h4 {
+    font-size: 18px;
+    margin-top: 0;  
+    margin-bottom: 8px;
+    color: #173983;
+    font-family: 'Lufga', sans-serif;
+}
+.coaching-section .small-text {
+    font-size: 16px;
+    color: #666;
+    font-family: 'Lufga', sans-serif;
+    margin-bottom: 20px;
+}
+.coaching-section .btn {
+    width: 180px;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    background-color: #ffffff;
+    color: rgb(57, 132, 193);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Lufga', sans-serif;
+}
+.coaching-section .btn:hover {
+    background-color: #fafbfd;
+}
+
+.coaching-section .more-content {
+    display: none;
+    margin-top: 0;
+    font-family: 'Lufga', sans-serif;
+    font-size: 6px;
+    color: #555;
+}
+
+.coaching-section .more-content.show {
+    display: block;
+    font-family: 'Lufga', sans-serif;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lufga', sans-serif;
+    gap: 0px; 
+}
+
+.recommended-job-container {
+    flex: 1;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top:-140px; /* Reduce space between sections */
+    font-family: 'Lufga', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.recommended-job-container h4 {
+    font-size: 22px;
+    color: rgb(0, 12, 30);
+    margin-bottom: 15px;
+    font-family: 'Lufga', sans-serif;
+}
+
+
+.recommended-job-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+    margin-bottom: 1px;
+    width: 800px;
+    font-family: 'Lufga', sans-serif;
+}
+
+
+.recommended-job {
+    width: 48%;
+    padding: 5px;
+    background-color: #fff;
+    font-family: 'Lufga', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.hospital-header {
+    display: flex;
+    align-items: center;
+    font-family: 'Lufga', sans-serif;
+    gap: 8px;
+}
+
+.hospital-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+    font-family: 'Lufga', sans-serif;
+}
+
+.hospital-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #173983;
+    font-family: 'Lufga', sans-serif;
+}
+
+
+.hospital-info {
+    display: flex;
+    gap: 8px; 
+    margin-top: 5px;
+    font-family: 'Lufga', sans-serif;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    font-family: 'Lufga', sans-serif;
+}
+
+.info-icon {
+    width: 18px; 
+    height: 18px;
+    margin-right: 6px; 
+    font-family: 'Lufga', sans-serif;
+}
+
+
+.hospital-description {
+    font-size: 10px;
+    color: #555;
+    font-family: 'Lufga', sans-serif;
+    margin-top: 10px; 
+}
+
+
+.job-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px; 
+    justify-content: flex-start;
+    font-family: 'Lufga', sans-serif;
+}
+
+.btn.direct-call {
+    background-color: #ffffff;
+    color: rgb(30, 106, 192);
+    font-family: 'Lufga', sans-serif;
+}
+
+.btn.apply-now {
+    background-color: #ffffff;
+    font-family: 'Lufga', sans-serif;
+    color: rgb(30, 106, 192);
+}
+
+.job-buttons .btn:hover {
+    opacity: 0.8;
+    background-color: rgb(22, 25, 131);
+    color: white;
+    font-family: 'Lufga', sans-serif;
+}
+.container {
+            width: 320px;
+            background: rgb(255, 255, 255);
+            padding: 20px;
+            width: 550px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Lufga', sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .header a {
+            color: #057dfe;
+            text-decoration: none;
+            font-size: 10px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-box img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-info {
+            flex: 1;
+            margin-left: 10px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-info p {
+            margin: 0;
+        }
+        .hospital-name {
+            font-weight: bold;
+            font-size: 14px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .message {
+            font-size: 12px;
+            color: #666;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-meta {
+            text-align: right;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-meta .time {
+            font-size: 10px;
+            color: #999;
+            font-family: 'Lufga', sans-serif;
+        }
+        .chat-meta .badge {
+            background: rgb(20, 11, 141);
+            color: white;
+            font-size: 10px;
+            padding: 3px 7px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-top: 5px;
+            font-family: 'Lufga', sans-serif;
+        }
+        
+        .main-container {
+    display: flex;
+    justify-content: space-between; /* To align both sides in a row */
+    padding: 20px;
+    font-family: 'Lufga', sans-serif;
+}
+
+.left-side {
+    flex: 0 0 60%; /* Left side will take up 60% of the width */
+}
+
+.right-side {
+    flex: 0 0 35%; /* Right side will take up 35% of the width */
+}
+
+.coaching-container {
+    width: 100%; /* Make sure the coaching container fills its parent container */
+    background: #f1f9ff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    font-family: 'Lufga', sans-serif;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    font-family: 'Lufga', sans-serif;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Lufga', sans-serif;
+}
+
+.description, .extra-info {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-family: 'Lufga', sans-serif;
+}
+
+.know-more {
+    display: inline-block;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Lufga', sans-serif;
+}
+
+.know-more:hover {
+    text-decoration: underline;
+    font-family: 'Lufga', sans-serif;
+}
+
+.chat-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    font-family: 'Lufga', sans-serif;
+}
+
+.chat-box img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-family: 'Lufga', sans-serif;
+}
+
+.chat-info {
+    flex: 1;
+    margin-left: 10px;
+    font-family: 'Lufga', sans-serif;
+}
+
+.chat-meta {
+    text-align: right;
+    font-family: 'Lufga', sans-serif;
+}
+
+.chat-meta .time {
+    font-size: 10px;
+    color:#173983;
+    font-family: 'Lufga', sans-serif;
+
+}
+
+.chat-meta .badge {
+    background: #173983;;
+    color:white;
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+    font-family: 'Lufga', sans-serif;
+}
+.coaching-container{
+    background-color:white;
+    text-align: justify;
+    color: #173983;
+    font-family: 'Lufga', sans-serif;
+    
+}
+
+.corr{
+    color: #173983;
+    font-family: 'Lufga', sans-serif;
+}
+
+footer {
+            background-color: #052753;
+            color: white;
+            width: 1300px;
+            padding: 20px;
+            font-family: 'Lufga', sans-serif;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Lufga', sans-serif;
+            align-items: flex-start;
+        }
+        .footer-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .footname{
+            color:white;
+            height:10px;
+            font-size: larger;
+            padding: 3px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .connect{
+            color: white;
+            font-size: small;
+            height: 10px;
+            padding: 5px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .down{
+        font-size: small;
+        font-family: 'Lufga', sans-serif;
+        }
+        .footer-top img {
+            height: 40px;
+            padding: auto;
+            font-family: 'Lufga', sans-serif;
+        }
+        .social-icons, .download-icons {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            font-family: 'Lufga', sans-serif;
+        }
+        .social-icons img, .download-icons img {
+            height: 20px;
+            font-family: 'Lufga', sans-serif;
+        }
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(5, auto);
+            gap: 10px;
+            text-align: left;
+            font-family: 'Lufga', sans-serif;
+            margin: 20px auto;
+            width: 50%;
+            font-weight:100;
+        }
+        .footer-links p {
+            margin: 0;
+            padding-left: 20px;
+            font-family: 'Lufga', sans-serif;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="loggo.jpg" alt="Logo" class="logo">
+            <h2>Duty Doctor</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Academy</a></li>
+                <li><a href="#">Docs</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Search jobs here" class="search-bar">
+        </div>
+        <div class="icons">
+            <img src="notification.png" alt="Notifications" class="icon">
+            <img src="user.png" alt="Profile" class="icon">
+        </div>
+    </header>
+
+    <section class="main-box">
+        <div class="main-content">
+            <h3>Discover Jobs Across Popular Roles!</h3>
+            <h4>Select a role and we'll show you relevant jobs for it!</h4>
+            <div class="buttons">
+                <button class="btn explore">Explore Jobs</button>
+                <button class="btn register">Register Now</button>
+            </div>
+        </div>
+
+        <div class="journey-container">
+            <h4>Where are you in your job search journey?</h4>
+            <div class="journey-options">
+                <div class="option" onclick="toggleClick(this)">Actively searching jobs</div>
+                <div class="option" onclick="toggleClick(this)">Exploring opportunities</div>
+                <div class="option" onclick="toggleClick(this)">Want to learn more</div>
+                <div class="option" onclick="toggleClick(this)">Just looking for options</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="job-container">
+        <div class="job-list">
+            <h4 class="section">Immediate Jobs</h4>
+            <div class="locations">
+                <div class="location-item coimbatore">
+                    <h5>Coimbatore</h5>
+                    <h6>11.k+ jobs available</h6>
+                </div>
+                <div class="location-item chennai">
+                    <h5>Chennai</h5>
+                    <h6>13k jobs available</h6>
+                </div>
+                <div class="location-item madurai">
+                    <h5>Madurai</h5>
+                    <h6>9.5k jobs available</h6>
+                </div>
+                <div class="location-item thiruvanmiyur">
+                    <h5>Thiruvanmiyur</h5>
+                    <h6>18.5k jobs available</h6>
+                </div>
+            </div>
+            <div class="view-all-container">
+                <a href="#" class="view-all">View All Locations</a>
+            </div>
+        </div>
+
+        <div class="coaching-section">
+            <img src="pixelcut-export.jpg" alt="Coaching Image">
+            <h4>Explore Coaching Options</h4>
+            <p class="small-text">Learn more about our coaching services and kickstart your career with personalized training.</p>
+            <button class="btn" onclick="toggleContent()">Learn More</button>
+            <div class="more-content">
+                <p>We offer one-on-one coaching, group workshops, and online courses for various medical specialties.</p>
+            </div>
+        </div>
+    </section>
+   
+    <section class="recommended-job-container">
+        <h4>Recommended Jobs for You</h4>
+    
+       
+        <div class="recommended-job-row">
+            
+            <div class="recommended-job">
+                <div class="hospital-header">
+                    <img src="kmch.jpg" alt="Hospital Logo" class="hospital-logo">
+                    <h5 class="hospital-name">City Hospital</h5>
+                </div>
+    
+                <div class="hospital-info">
+                    <div class="info-item">
+                        <img src="doctor.png" alt="Specialization" class="info-icon">
+                        <span>Cardiology</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="rupee-sign.png" alt="Salary" class="info-icon">
+                        <span>₹ 5-10 lakh</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="hospital.png" alt="Location" class="info-icon">
+                        <span>Coimbatore</span>
+                    </div>
+                </div>
+    
+                <p class="hospital-description">City Hospital is a leading healthcare provider in Coimbatore, offering high-quality medical services across a variety of specialties. Join our dedicated team today!</p>
+    
+                <div class="job-buttons">
+                    <button class="btn direct-call">Direct Call</button>
+                    <button class="btn apply-now">Apply Now</button>
+                </div>
+            </div>
+    
+            <div class="recommended-job">
+                <div class="hospital-header">
+                    <img src="kmch.jpg" alt="Hospital Logo" class="hospital-logo">
+                    <h5 class="hospital-name">Care Medical Center</h5>
+                </div>
+    
+                <div class="hospital-info">
+                    <div class="info-item">
+                        <img src="stethoscope.png" alt="Specialization" class="info-icon">
+                        <span>Cardiology</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="rupee-sign.png" alt="Salary" class="info-icon">
+                        <span>₹ 5-10 lakh</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="hospital.png" alt="Location" class="info-icon">
+                        <span>Chennai</span>
+                    </div>
+                </div>
+    
+                <p class="hospital-description">Care Medical Center is renowned for its compassionate care and commitment to medical excellence. We offer a dynamic and supportive environment for all our employees.</p>
+    
+                <div class="job-buttons">
+                    <button class="btn direct-call">Direct Call</button>
+                    <button class="btn apply-now">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+    <div class="main-container">
+        <!-- Left Side: Existing Content (Chat Boxes) -->
+        <div class="left-side">
+            <div class="header">
+                <span>Messages</span>
+                <a href="#">View All</a>
+            </div>
+    
+            <!-- Chat Box 1 -->
+            <div class="chat-box">
+                <img src="kmch.jpg" alt="Logo">
+                <div class="chat-info">
+                    <p class="hospital-name">City Hospital</p>
+                    <p class="message">Thank you for your inter...</p>
+                </div>
+                <div class="chat-meta">
+                    <span class="time">10:30 AM</span>
+                    <span class="badge">2</span>
+                </div>
+            </div>
+    
+            <!-- Chat Box 2 -->
+            <div class="chat-box">
+                <img src="gw.png" alt="Logo">
+                <div class="chat-info">
+                    <p class="hospital-name">Greenwood Clinic</p>
+                    <p class="message">Send your resume.</p>
+                </div>
+                <div class="chat-meta">
+                    <span class="time">09:15 AM</span>
+                    <span class="badge">1</span>
+                </div>
+            </div>
+    
+            <!-- Chat Box 3 -->
+            <div class="chat-box">
+                <img src="gknm.png" alt="Logo">
+                <div class="chat-info">
+                    <p class="hospital-name">GKNM Hospital</p>
+                    <p class="message">Thank you for your inter...</p>
+                </div>
+                <div class="chat-meta">
+                    <span class="time">Yesterday</span>
+                    <span class="badge">3</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Right Side: New Coaching Container -->
+        <div class="right-side">
+            <div class="coaching-container">
+                
+                <h4 class="corr">How to Coach Managers on Effectively</h4>
+                <p class="description">This is a brief description of the coaching session or class. It should describe the topic and attract the audience's attention.</p>
+                <p class="extra-info">Additional information or a follow-up sentence to provide more details about the course or program offered.</p>
+                <a href="#" class="know-more">Know More</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-left">
+            <div class="footer-top">
+                <img src="letter-d.png" alt="Duty Doctor Logo">
+                <h4 class="footname">Duty Doctor</h4>
+            </div>
+            <h4 class="connect">Connect with Us</h4>
+            <div class="social-icons">
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="threads.png" alt="Threads"></a>
+                <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+            </div>
+            <h3 class="down">Download the App</h3>
+            <div class="download-icons">
+                <a href="#"><img src="app-store.png" alt="Apple Store"></a>
+                <a href="#"><img src="google-play.png" alt="Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Privacy Policy</p>
+            <p>Notices</p>
+            <p>Credits</p>
+            <p>Terms & Conditions</p>
+            <p>Employer Home</p>
+            <p>Grievances</p>
+            <p>Trust & Safety</p>
+            <p>Sitemap</p>
+            <p>Credits</p>
+            <p>Fraud Alert</p>
+            <p>Privacy Policy</p>
+            <p>Help Center</p>
+        </div>
+    </footer>
+    
+   
+
+    <script>
+        function toggleClick(element) {
+            element.classList.toggle('clicked');
+        }
+
+        function toggleContent() {
+            const content = document.querySelector('.coaching-section .more-content');
+            content.classList.toggle('show');
+            document.addEventListener("DOMContentLoaded", function() {
+        console.log("Footer Loaded Successfully");
+    });
+        }
+    </script>
+</body>
+
+</html>
